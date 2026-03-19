@@ -122,6 +122,14 @@ export default function RootLayout({
                 >
                   Repository
                 </a>
+                <a
+                  className="hover:text-slate-900 dark:hover:text-slate-100"
+                  href="https://github.com/csq-lang/csq-lang.github.io"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Page{"'"}s source
+                </a>
               </div>
             </div>
           </div>
