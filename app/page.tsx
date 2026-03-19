@@ -74,7 +74,7 @@ export default function Home() {
                   Clean, familiar, and focused on clarity.
                 </p>
                 <pre className="mt-4 whitespace-pre overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
-                  <code>
+                  <code className="whitespace-pre text-gray-800 dark:text-white">
                     <span className="code-type">int</span>{" "}
                     <span className="code-ident">add</span>
                     <span>(</span>
@@ -152,7 +152,7 @@ export default function Home() {
                     Structures
                   </div>
                   <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
-                    <code className="whitespace-pre">
+                    <code className="whitespace-pre text-gray-800 dark:text-white">
                       <span className="code-keyword">type</span>{" "}
                       <span className="code-ident">point2d</span> ={" "}
                       <span className="code-keyword">struct</span> &#123;{"\n"}
@@ -193,10 +193,11 @@ export default function Home() {
                     Control flow
                   </div>
                   <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
-                    <code className="whitespace-pre">
+                    <code className="whitespace-pre text-gray-800 dark:text-white">
                       <span className="code-keyword">if</span> (
-                      <span className="code-ident">count </span>&gt;{" "}
-                      <span className="code-number">5</span>) {"{\n"}
+                      <span className="code-ident">count </span>
+                      <span>&gt;</span> <span className="code-number">5</span>){" "}
+                      {"{\n"}
                       <span className="code-comment">{`\t// Greater`}</span>
                       {"\n"}
                       {"}"} <span className="code-keyword">else</span> {"{\n"}
