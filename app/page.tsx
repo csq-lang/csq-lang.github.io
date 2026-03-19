@@ -73,11 +73,23 @@ export default function Home() {
                 <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                   Clean, familiar, and focused on clarity.
                 </p>
-                <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
-                  <code>{`int count = 10;
-double pi = 3.14159;
-bool active = true;
-ulong id = 9143145u;`}</code>
+                <pre className="mt-4 whitespace-pre overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
+                  <code>
+                    <span className="code-type">int</span>{" "}
+                    <span className="code-ident">add</span>
+                    <span>(</span>
+                    <span className="code-type">int</span>{" "}
+                    <span className="code-ident">a</span>,{" "}
+                    <span className="code-type">int</span>{" "}
+                    <span className="code-ident">b</span>
+                    <span>) &#123;</span>
+                    <br></br>
+                    <span className="code-keyword">{"\t"}return</span>{" "}
+                    <span className="code-ident">a</span> +{" "}
+                    <span className="code-ident">b</span>
+                    <br></br>
+                    &#125;
+                  </code>
                 </pre>
               </div>
             </div>
@@ -137,24 +149,61 @@ ulong id = 9143145u;`}</code>
               <div className="mt-10 grid gap-6 sm:grid-cols-2">
                 <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
                   <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
-                    Functions
+                    Structures
                   </div>
-                  <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
-                    <code>{`int add(int a, int b) {
-    return a + b
-}`}</code>
+                  <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
+                    <code className="whitespace-pre">
+                      <span className="code-keyword">type</span>{" "}
+                      <span className="code-ident">point2d</span> ={" "}
+                      <span className="code-keyword">struct</span> &#123;{"\n"}
+                      {"\t"}
+                      <span className="code-type">int</span>{" "}
+                      <span className="code-ident">x</span>;{"\n"}
+                      {"\t"}
+                      <span className="code-type">int</span>{" "}
+                      <span className="code-ident">y</span>;{"\n"}
+                      &#125;;{"\n\n"}
+                      <span className="code-type">point2d</span>{" "}
+                      <span className="code-ident">p</span> <span>=</span>{" "}
+                      &#123;
+                      <span className="code-number">6</span>,{" "}
+                      <span className="code-number">8</span>&#125;;
+                      {/*<span className="code-type">int</span>{" "}
+                      <span className="code-ident">count</span> ={" "}
+                      <span className="code-number">10</span>;{"\n"}
+                      <span className="code-type">double</span>{" "}
+                      <span className="code-ident">pi</span> ={" "}
+                      <span className="code-number">3.14159</span>;{"\n"}
+                      <span className="code-type">bool</span>{" "}
+                      <span className="code-ident">active</span> ={" "}
+                      <span className="code-const">true</span>;{"\n"}
+                      <span className="code-type">ulong</span>{" "}
+                      <span className="code-ident">id</span> ={" "}
+                      <span className="code-number">9143145u</span>;{"\n"}
+                      <span className="code-type">int</span>{" "}
+                      <span className="code-ident">result</span> ={" "}
+                      <span className="code-ident">add</span>(
+                      <span className="code-number">5</span>,{" "}
+                      <span className="code-number">11</span>);{"\n"}*/}
+                    </code>
                   </pre>
                 </div>
                 <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
                   <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Control flow
                   </div>
-                  <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
-                    <code>{`if (count > 5) {
-    // Greater than
-} else {
-    // Less or Equal than
-}`}</code>
+                  <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-200 dark:bg-slate-900 p-4 text-sm text-slate-100">
+                    <code className="whitespace-pre">
+                      <span className="code-keyword">if</span> (
+                      <span className="code-ident">count </span>&gt;{" "}
+                      <span className="code-number">5</span>) {"{\n"}
+                      <span className="code-comment">{`\t// Greater`}</span>
+                      {"\n"}
+                      {"}"} <span className="code-keyword">else</span> {"{\n"}
+                      <span className="code-comment">{`\t// Less or Equal`}</span>
+                      {"\n"}
+                      {"}"}
+                    </code>
                   </pre>
                 </div>
               </div>
@@ -173,8 +222,8 @@ ulong id = 9143145u;`}</code>
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300">
             C² is open source. The best way to begin is to explore the
-            repository, read the spec, and follow the{" "}
-            {"project's"} build and usage instructions.
+            repository, read the docs, and follow the {"project's"} build and
+            usage instructions.
           </p>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
@@ -183,11 +232,11 @@ ulong id = 9143145u;`}</code>
                 1) Read
               </div>
               <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-                Start with the spec to understand syntax, types, and semantics.
+                Start with the docs to understand syntax, types, and semantics.
               </p>
               <div className="mt-4">
                 <a
-                  href="https://csq-lang.github.io/spec"
+                  href="https://csq-lang.github.io/csq-documentation"
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
@@ -216,11 +265,11 @@ ulong id = 9143145u;`}</code>
             </div>
             <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
               <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
-                3) Docs
+                3) Spec
               </div>
               <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-                Learn what the project is and how {"it's"} shaped by the
-                community.
+                Read the technical specification to understand how the language
+                works internally.
               </p>
               <div className="mt-4">
                 <a

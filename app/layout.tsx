@@ -84,7 +84,7 @@ export default function RootLayout({
                 About
               </Link>
               <a
-                href="https://github.com/csq-lang/csquared"
+                href="https://github.com/csq-lang"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-md px-2 py-1 text-slate-700 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/40 dark:hover:text-slate-100"

@@ -122,3 +122,61 @@ html.dark .markdown a {
         Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.95em;
 }
+
+/* Base (light mode) */
+.code-keyword {
+    color: #dc2626;
+}
+
+.code-type {
+    color: #a16207;
+}
+
+.code-ident {
+    color: #1f2937;
+}
+
+.code-number {
+    color: #ea580c;
+}
+
+.code-const {
+    color: #7c3aed;
+}
+
+.code-comment {
+    color: #6b7280;
+}
+
+.dark .code-keyword {
+    color: #f87171;
+}
+
+.dark .code-type {
+    color: #facc15;
+}
+
+.dark .code-ident {
+    color: #e5e7eb;
+}
+
+.dark .code-number {
+    color: #fb923c;
+}
+
+.dark .code-const {
+    color: #c084fc;
+}
+
+.dark .code-comment {
+    color: #9ca3af;
+}
+
+pre {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    text: black;
+}
+
+.dark pre {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
