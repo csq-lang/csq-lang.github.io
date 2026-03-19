@@ -173,8 +173,8 @@ ulong id = 9143145u;`}</code>
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">
             C² is open source. The best way to begin is to explore the
-            repository, read the spec, and follow the project's build and usage
-            instructions.
+                repository, read the spec, and follow the{" "}
+                {"project's"} build and usage instructions.
           </p>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
@@ -219,7 +219,8 @@ ulong id = 9143145u;`}</code>
                 3) Docs
               </div>
               <p className="mt-2 text-sm leading-6 text-slate-600">
-                Learn what the project is and how it's shaped by the community.
+                  Learn what the project is and how {"it's"} shaped by the
+                  community.
               </p>
               <div className="mt-4">
                 <a
