@@ -1,0 +1,1058 @@
+<!DOCTYPE HTML>
+<html lang="en" class="dark sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C squared specification</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "dark";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-ad01bb67.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-d7514260.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('dark')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">C squared specification</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+                        <a href="https://github.com/csq-lang/spec" title="Git repository" aria-label="Git repository">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="overview-1"><a href="print.html#overview-1" class="header">Overview</a></h1>
+<h1 align="center">C squared</h1>
+
+<blockquote class="blockquote-tag blockquote-tag-caution">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</p>
+<p>This spec is deprecated, as C² is being redesigned and rewritten.</p>
+<p>You can quite literally ignore it whole right now, because most information
+(except the <strong><em>what this book is not</em></strong> and <strong><em>how and when to read this book</em></strong>
+sections) is mostly obsolete.</p>
+</blockquote>
+<h1 id="overview"><a class="header" href="print.html#overview">Overview</a></h1>
+<p>C² is an enhanced version of [C lang](https://en.wikipedia.org/wiki/C_(programming_language), made to:</p>
+<ul>
+<li>Be easier.</li>
+<li>Be more flexible.</li>
+<li>Include more features for convenience.</li>
+<li>Include more complex structures and types overall.</li>
+<li>Give better error reports and help overall.</li>
+<li>And, most importantly, <strong>make low-level simpler</strong>.</li>
+</ul>
+<h2 id="what-this-book-is-not"><a class="header" href="print.html#what-this-book-is-not">What this book IS <em>NOT</em></a></h2>
+<p>This book is the <strong>specification</strong> of C². It contains all information about the behavior and definitions of C². This book is <strong>NOT</strong> a manual or documentation for C², it supposes the user already has background knowledge of C².</p>
+<p>If C² declares a magic singleton, you will find it here; if it contains a primitive built-in type, you will find it here.</p>
+<p>You can’t learn about C² by <em>just</em> reading this book. It does not contain informative paragraphs destinated to teaching, but objective information purely dedicated to showcasing how the language works internally.</p>
+<h2 id="how-and-when-to-read-this-book"><a class="header" href="print.html#how-and-when-to-read-this-book">How and when to read this book</a></h2>
+<p>There are two main reasons why you would read this book:</p>
+<ul>
+<li><strong>Answer a specific question</strong>: search for the answer by pressing <code>s</code>, and see if it can be solved.</li>
+<li><strong>Learn about the language’s internals</strong>: use the table of contents in the left.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="lexical-analysis"><a class="header" href="print.html#lexical-analysis">Lexical analysis</a></h1>
+<p>In this section you will find:</p>
+<ul>
+<li><a href="print.html#source">What sources the C² compiler allows.</a></li>
+<li><a href="print.html#reserved-keywords">What reserved keywords C² contains.</a></li>
+<li><a href="print.html#other-lexical-members">What other members (such as, but not limited to, identifiers) C² includes.</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="source"><a class="header" href="print.html#source">Source</a></h1>
+<p>C² sources must be:</p>
+<ul>
+<li>Files, with <code>.c2p</code> extension.</li>
+<li>Encoded with UTF-8/ANSI.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="reserved-keywords"><a class="header" href="print.html#reserved-keywords">Reserved keywords</a></h1>
+<h2 id="what-is-a-reserved-keyword"><a class="header" href="print.html#what-is-a-reserved-keyword">What is a reserved keyword?</a></h2>
+<p>Reserved keywords are special identifiers, built into the compiler, which can’t be used by the user as a variable name, as they instead serve a special function (for example, starting a specific statement).</p>
+<h2 id="reserved-keywords-in-c²"><a class="header" href="print.html#reserved-keywords-in-c²">Reserved keywords in C²</a></h2>
+<p>Reserved keywords in C² are:</p>
+<ul>
+<li><code>if</code></li>
+<li><code>in</code></li>
+<li><code>or</code></li>
+<li><code>and</code></li>
+<li><code>for</code></li>
+<li><code>nil</code></li>
+<li><code>new</code></li>
+<li><code>try</code></li>
+<li><code>int</code></li>
+<li><code>bool</code></li>
+<li><code>case</code></li>
+<li><code>else</code></li>
+<li><code>enum</code></li>
+<li><code>func</code></li>
+<li><code>self</code></li>
+<li><code>true</code></li>
+<li><code>break</code></li>
+<li><code>catch</code></li>
+<li><code>defer</code></li>
+<li><code>false</code></li>
+<li><code>float</code></li>
+<li><code>spawn</code></li>
+<li><code>throw</code></li>
+<li><code>until</code></li>
+<li><code>while</code></li>
+<li><code>import</code></li>
+<li><code>repeat</code></li>
+<li><code>return</code></li>
+<li><code>string</code></li>
+<li><code>struct</code></li>
+<li><code>switch</code></li>
+<li><code>default</code></li>
+<li><code>private</code></li>
+<li><code>continue</code></li>
+<li><code>function</code></li>
+<li><code>optional</code></li>
+</ul>
+<p>These can’t be used as:</p>
+<ul>
+<li>Variable names.</li>
+<li>Function names.</li>
+<li>Structure names.</li>
+<li>Field names.</li>
+<li>Argument names.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="other-lexical-members"><a class="header" href="print.html#other-lexical-members">Other lexical members</a></h1>
+<h2 id="identifiers"><a class="header" href="print.html#identifiers">Identifiers</a></h2>
+<p>Identifiers consist of:</p>
+<ul>
+<li>Any letter (or an underscore) present one time.</li>
+<li>Any letter, number or an underscore as all next characters repeated zero or more times.</li>
+</ul>
+<blockquote>
+<p><strong>Identifier examples</strong>:</p>
+<pre><code class="language-c">myvar
+_default
+c9
+</code></pre>
+</blockquote>
+<h2 id="strings"><a class="header" href="print.html#strings">Strings</a></h2>
+<p>Strings consist of:</p>
+<ul>
+<li>Either a single quote (<code>'</code>) or double quote (<code>"</code>), called the <em>delimiter</em>.</li>
+<li>Any character except the delimiter (being the first character, a single/double quote) repeated zero or more times.</li>
+<li>The delimiter once again.</li>
+</ul>
+<p>Characters inside strings can be escaped with a backslash (<code>\</code>), meaning you can insert the delimiter of the string if you use a backslash (<code>\</code>) to escape it.</p>
+<p>List of escaped characters:</p>
+<ul>
+<li><code>\t</code>: tab</li>
+<li><code>\n</code>: newline</li>
+<li><code>\r</code>: carriage return</li>
+<li><code>\"</code>, <code>\'</code>: double/single quote.</li>
+<li><code>\\</code>: backslash.</li>
+<li><code>\0</code>: null character.</li>
+</ul>
+<blockquote>
+<p><strong>String examples</strong>:</p>
+<pre><code class="language-c">"this is a string"
+'this is a string too!'
+"this string has \"escaped\"\tcharacters!"
+</code></pre>
+</blockquote>
+<h2 id="digits"><a class="header" href="print.html#digits">Digits</a></h2>
+<p>There are three types of digits:</p>
+<ul>
+<li>Decimal digits.</li>
+<li>Hexadecimal digits.</li>
+<li>Binary digits.</li>
+</ul>
+<h3 id="decimal-digits"><a class="header" href="print.html#decimal-digits">Decimal digits</a></h3>
+<p>They consist of:</p>
+<ul>
+<li>Any character from <code>0</code> to <code>9</code> repeated one or more times.</li>
+<li>Optionally, a period (<code>.</code>) followed by any character from <code>0</code> to <code>9</code> repeated one or more times.</li>
+</ul>
+<h3 id="hexadecimal-digits"><a class="header" href="print.html#hexadecimal-digits">Hexadecimal digits</a></h3>
+<p>They consist of:</p>
+<ul>
+<li>The prefix <code>0x</code>, which <strong>can’t change</strong>.</li>
+<li>Any character from <code>0</code> to <code>9</code> and <code>a</code> to <code>f</code> (case insensitive) repeated one or more times.</li>
+</ul>
+<h3 id="binary-digits"><a class="header" href="print.html#binary-digits">Binary digits</a></h3>
+<p>They consist of:</p>
+<ul>
+<li>The prefix <code>0b</code>, which <strong>can’t change</strong>.</li>
+<li>Either <code>0</code> or <code>1</code> repeated one or more times.</li>
+</ul>
+<blockquote>
+<p><strong>Digit examples</strong>:</p>
+<pre><code class="language-c">5
+3.14
+0x56F
+0b1011
+</code></pre>
+</blockquote>
+<h2 id="operators-punctuation"><a class="header" href="print.html#operators-punctuation">Operators, punctuation</a></h2>
+<p>Operators can’t be matched by a single expression, as there is a static list of possible operators/punctuation.</p>
+<p>All operators supported in C²:</p>
+<ul>
+<li><code>+</code></li>
+<li><code>+=</code></li>
+<li><code>++</code></li>
+<li><code>-</code></li>
+<li><code>-=</code></li>
+<li><code>-&gt;</code></li>
+<li><code>*</code></li>
+<li><code>*=</code></li>
+<li><code>/</code></li>
+<li><code>//</code></li>
+<li><code>/=</code></li>
+<li><code>%</code></li>
+<li><code>^</code></li>
+<li><code>=</code></li>
+<li><code>==</code></li>
+<li><code>!</code></li>
+<li><code>!=</code></li>
+<li><code>&lt;</code></li>
+<li><code>&lt;=</code></li>
+<li><code>&gt;</code></li>
+<li><code>&gt;=</code></li>
+<li><code>&amp;</code></li>
+<li><code>&amp;&amp;</code></li>
+<li><code>|</code></li>
+<li><code>||</code></li>
+<li><code>?</code></li>
+</ul>
+<p>All punctuation supported in C²:</p>
+<ul>
+<li><code>.</code></li>
+<li><code>..</code></li>
+<li><code>...</code></li>
+<li><code>(</code></li>
+<li><code>)</code></li>
+<li><code>{</code></li>
+<li><code>}</code></li>
+<li><code>[</code></li>
+<li><code>]</code></li>
+<li><code>:</code></li>
+<li><code>;</code></li>
+<li><code>,</code></li>
+<li><code>#</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="syntax"><a class="header" href="print.html#syntax">Syntax</a></h1>
+<p>C²’s syntax determines how a C squared program <strong>must look</strong>.</p>
+<h2 id="concrete-syntax"><a class="header" href="print.html#concrete-syntax">Concrete syntax</a></h2>
+<p>The abstract syntax might correspond to various concrete ones, even if they are different in style. That’s why the <em>concrete syntax</em> exists.</p>
+<p>The concrete syntax dictates how a C² program MUST be syntacticaly. It is formed by various concrete rules, which, if not followed, cause a syntax error.</p>
+<blockquote>
+<p><a href="print.html#grammar">C²’s grammar</a>.</p>
+</blockquote>
+<h2 id="lexer"><a class="header" href="print.html#lexer">Lexer</a></h2>
+<p>The lexer is a program which generates a list of Tokens<sup class="footnote-reference" id="fr-token-1"><a href="print.html#footnote-token">1</a></sup>. It is the first step in C²’s compiler, which goes before the parser, and
+allows for the parser to use a list of words rather than the whole source directly. You <strong>COULD</strong> consider the lexer a <em>“crutch”</em> for the parser,
+or even a part of it.</p>
+<p><a href="print.html#lexer-1">Further reading</a> of the lexer.</p>
+<p>To see what input the lexer accepts, read <a href="print.html#lexical-analysis">Lexical information</a>.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>The lexer’s source can be found <a href="https://github.com/csq-lang/csquared/blob/main/src/csquare/lexer.c">here</a>.</p>
+</blockquote>
+<h2 id="parser"><a class="header" href="print.html#parser">Parser</a></h2>
+<p>The parser is a program which generates an <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">AST (Abstract Syntax Tree)</a>.</p>
+<p>The abstract syntax tree allows the compiler to read the original source, which was only human readable
+(partially, as we could technically directly compile the source in a text format, although unefficient and too complex),
+in a friendlier format consisting of a syntactical tree in memory.</p>
+<p><a href="print.html#parser-1">Further reading</a> of the parser.</p>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>The parser’s source can be found <a href="https://github.com/csq-lang/csquared/tree/main/src/parser">here</a>.</p>
+</blockquote>
+<hr>
+<ol class="footnote-definition">
+<li id="footnote-token">
+<p>A word, digit or character generated by the <em>lexer</em> and used by the <em>parser</em> to generate the AST. <a href="print.html#tokens">Further reading</a> <a href="print.html#fr-token-1">↩</a></p>
+</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="grammar"><a class="header" href="print.html#grammar">Grammar</a></h1>
+<p>Also known as concrete syntax.</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center"><strong>Usage</strong></th><th style="text-align: center"><strong>Notation</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center">definition</td><td style="text-align: center"><code><strong>=</strong></code></td></tr>
+<tr><td style="text-align: center">concatenation</td><td style="text-align: center"><code>,</code></td></tr>
+<tr><td style="text-align: center">termination</td><td style="text-align: center"><code>;</code></td></tr>
+<tr><td style="text-align: center">alternation</td><td style="text-align: center"><code>|</code></td></tr>
+<tr><td style="text-align: center">optional</td><td style="text-align: center"><code>[ … ]</code></td></tr>
+<tr><td style="text-align: center">repetition</td><td style="text-align: center"><code>{ … }</code></td></tr>
+<tr><td style="text-align: center">grouping</td><td style="text-align: center"><code>( … )</code></td></tr>
+<tr><td style="text-align: center">terminal string</td><td style="text-align: center"><code>“ … “</code></td></tr>
+<tr><td style="text-align: center">terminal string</td><td style="text-align: center"><code>’ … ’</code></td></tr>
+<tr><td style="text-align: center">comment</td><td style="text-align: center"><code>(* … *)</code></td></tr>
+<tr><td style="text-align: center">special sequence</td><td style="text-align: center"><code>? … ?</code></td></tr>
+<tr><td style="text-align: center">exception</td><td style="text-align: center"><code>-</code></td></tr>
+</tbody>
+</table>
+</div>
+<blockquote class="blockquote-tag blockquote-tag-note">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p>
+<p>Table from <a href="https://gist.github.com/refs/e6e84057eb047ee5f306b76e13f76d1e">this GitHub gist</a>.</p>
+</blockquote>
+<blockquote class="blockquote-tag blockquote-tag-warning">
+<p class="blockquote-tag-title"><svg viewbox="0 0 16 16" width="18" height="18"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p>
+<p>This grammar might be outdated compared to the compiler.</p>
+</blockquote>
+<pre><code class="language-bnf">Program = { Ignorable | Declaration | Statement } ;
+
+Ignorable = WS | Comment ;
+
+Comment = "//", { anychar - "\n" } ;
+
+(* ===== Lexical ===== *)
+
+boolean = "true" | "false" ;
+
+ident = ( letter, { letter | digit | "_" } ) - reserved ;
+
+number = digit, { digit }, [ ".", digit, { digit } ] ;
+
+string =
+      '"', { ( anychar - '"' ) | interpolated }, '"'
+    | "'", { ( anychar - "'" ) | interpolated }, "'" ;
+
+interpolated = "$", "{", { anychar - "}" }, "}" ;
+
+tag = "@", string ;
+
+letter =
+      "a" | "b" | "c" | "d" | "e" | "f" | "g"
+    | "h" | "i" | "j" | "k" | "l" | "m" | "n"
+    | "o" | "p" | "q" | "r" | "s" | "t" | "u"
+    | "v" | "w" | "x" | "y" | "z"
+    | "A" | "B" | "C" | "D" | "E" | "F" | "G"
+    | "H" | "I" | "J" | "K" | "L" | "M" | "N"
+    | "O" | "P" | "Q" | "R" | "S" | "T" | "U"
+    | "V" | "W" | "X" | "Y" | "Z" ;
+
+digit = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+
+WS = " " | "\t" | "\n" | "\r" ;
+
+anychar = ? any character ? ;
+
+bit_depth = "8" | "16" | "32" | "64" ;
+
+(* ===== Literals ===== *)
+
+Literal =
+      number
+    | string
+    | boolean
+    | tag
+    | ArrayLiteral
+    | MapLiteral ;
+
+ArrayLiteral = "[", [ Expr, { ",", Expr } ], "]" ;
+
+KeyValue = "[", Expr, "]", ":", Expr ;
+
+MapLiteral = "{", [ KeyValue, { ",", KeyValue } ], "}" ;
+
+(* ===== Types ===== *)
+
+Type =
+    ["const"], ident - "void"
+    | ArrayType
+    | MapType
+    | FunctionType ;
+
+ArrayType = "[", Type, "]" ;
+
+MapType = "{", Type, ",", Type, "}" ;
+
+FunctionType = "(", [ Type, { ",", Type } ], ")", Type ;
+
+TypeAnnot = ":", Type ;
+
+(* ===== Declarations ===== *)
+
+Declaration =
+      Variable
+    | func
+    | Structure
+    | Enumeration ;
+
+Variable =
+    Type,
+    ident,
+    "=",
+    Expr ;
+
+func =
+    { Decorator },
+    "func",
+    ident,
+    "(",
+        [ Parameter, [ { ",", Parameter } ] ],
+    ")",
+    "-&gt;", Type,
+    "{", Block, "}" ;
+
+Decorator = "#", ident ;
+
+Parameter =
+      "self"
+    | "...", ident, TypeAnnot
+    | ident, TypeAnnot, [ "=", Expr ] ;
+
+StructParameter = ident, TypeAnnot, [ "=", Expr ] ;
+
+Structure =
+    "struct",
+    ident,
+    [ "(", StructParameter, { ",", StructParameter } , ")" ],
+    "{",
+        { StructureField | func }, ";",
+    "}" ;
+
+StructureField =
+    [ "private" ],
+    ident,
+    [ TypeAnnot ],
+    "=",
+    Expr ;
+
+Enumeration =
+    "enum",
+    ident,
+    "{",
+        ident, { ",", ident },
+    "}" ;
+
+(* ===== Statements ===== *)
+
+Statement =
+      If
+    | Switch
+    | Defer
+    | Return
+    | Throw
+    | Try
+    | Loop
+    | Declaration
+    | Expr ;
+
+If =
+    "if", "(", Expr, ")", "{", Block, "}",
+    { "else", "if", "(", Expr, ")", "{", Block, "}" },
+    [ "else", "{", Block, "}" ] ;
+
+Switch =
+    "switch", "(", Expr, ")", "{",
+        { Case },
+        [ "default", "{", Block, "}" ],
+    "}" ;
+
+Case =
+    "case",
+    "(",
+        Expr, { ",", Expr },
+    ")",
+    "{", Block, "}" ;
+
+Defer =
+      "defer", Expr
+    | "defer", "{", Block, "}" ;
+
+Return = "return", [ Expr ] ;
+
+Throw = "throw", Expr ;
+
+Try =
+    "try", "{", Block, "}",
+    "catch", "(", ident, ")", "{", Block, "}" ;
+
+Loop =
+      For
+    | While
+    | Until
+    | Repeat ;
+
+For =
+    "for",
+    "(",
+        ident, { ",", ident },
+        "in",
+        Expr,
+    ")",
+    "{", Block, "}" ;
+
+While =
+    "while",
+    [ "(", Expr, ")" ],
+    "{", Block, "}" ;
+
+Until =
+    "until",
+    "(", Expr, ")",
+    "{", Block, "}" ;
+
+Repeat =
+    "repeat",
+    Expr,
+    "{", Block, "}" ;
+
+Block = { Ignorable | Statement, ( ";" | "}" ) } ;
+
+(* ===== Expressions ===== *)
+
+Expr = Assignment ;
+
+Assignment =
+    LogicOr,
+    [ ( "=" | "+=" | "-=" | "*=" | "/=" ), Assignment ] ;
+
+LogicOr =
+    LogicAnd, { "or", LogicAnd } ;
+
+LogicAnd =
+    Equality, { "and", Equality } ;
+
+Equality =
+    Relational, { ( "==" | "!=" ), Relational } ;
+
+Relational =
+    Additive, { ( "&lt;" | "&lt;=" | "&gt;" | "&gt;=" ), Additive } ;
+
+Additive =
+    Multiplicative, { ( "+" | "-" ), Multiplicative } ;
+
+Multiplicative =
+    Exponent, { ( "*" | "/" | "%" ), Exponent } ;
+
+Exponent =
+    Unary, [ "^", Exponent ] ;
+
+
+Unary =
+      ( "-" | "#" ), Unary
+    | Range ;
+
+Primary =
+      Literal
+    | ident
+    | "(" Expr ")"
+    | FunctionCall
+    | AnonFunction
+    | New
+    | Spawn ;
+
+Postfix =
+    Primary,
+    { "." ident
+    | "[" Expr "]"
+    },
+    [ "++" | "--" ] ;
+
+Range =
+    Postfix, "..", Postfix ;
+
+(* Reserved keywords *)
+func = "func" ;
+if = "if" ;
+else = "else" ;
+switch = "switch" ;
+case = "case" ;
+default = "default" ;
+while = "while" ;
+for = "for" ;
+return = "return" ;
+throw = "throw" ;
+struct = "struct" ;
+enum = "enum" ;
+const = "const" ;
+let = "let" ;
+in = "in" ;
+import = "import" ;
+new = "new" ;
+repeat = "repeat" ;
+until = "until" ;
+defer = "defer" ;
+try = "try" ;
+catch = "catch" ;
+spawn = "spawn" ;
+private = "private" ;
+self = "self" ;
+or = "or" ;
+and = "and" ;
+reserved =  
+        if | else | switch | case | default | while | for 
+        | return  | throw | struct | enum | const | let 
+        | in | import | new | repeat | until | defer | try 
+        | catch | spawn | private | self | or | and ;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="lexer-1"><a class="header" href="print.html#lexer-1">Lexer</a></h1>
+<p>The lexer has the job of turning your source into a list of <a href="print.html#tokens">tokens</a>.</p>
+<p>Given this source:</p>
+<pre><code class="language-csq">func main() -&gt; int
+{
+  puts("Hello, World!")
+  return 0
+}
+</code></pre>
+<p>The lexer will generate this token list:</p>
+<blockquote>
+<p>format: <code>TOKEN_TYPE</code>, <code>LEXEME</code></p>
+</blockquote>
+<pre><code class="language-c">TOKEN_KEYWORD_FUNC, "func";
+TOKEN_IDENTIFIER, "main";
+TOKEN_OPEN_PAREN, "(";
+TOKEN_CLOSE_PAREN, ")";
+TOKEN_ARROW, "-&gt;";
+TOKEN_KEYWORD_INT, "int";
+TOKEN_OPEN_BRACE, "{";
+TOKEN_IDENTIFIER, "puts";
+TOKEN_OPEN_PAREN, "(";
+TOKEN_STRING, "Hello, World!";
+TOKEN_CLOSE_PAREN, ")";
+TOKEN_KEYWORD_RETURN, "return";
+TOKEN_NUMBER, "0";
+TOKEN_CLOSE_BRACE, "}";
+</code></pre>
+<p>This output will then be fed to the <a href="print.html#parser-1">parser</a>.</p>
+<h2 id="the-csq_lexer-type"><a class="header" href="print.html#the-csq_lexer-type">The <code>csq_lexer</code> type</a></h2>
+<p>The <code>csq_lexer</code> type represents the lexer internally. It serves as storage for the lexer state and for position tracking (line and column, for error reports).</p>
+<p>It contains:</p>
+<ul>
+<li><code>buffer</code>: entire source file buffer.</li>
+<li><code>start</code>: start of the current token being scanned.</li>
+<li><code>current</code>: current position in buffer.</li>
+<li><code>line</code>: current line number (1-indexed).</li>
+<li><code>column</code>: current column number (1-indexed).</li>
+<li><code>path</code>: path to source file for error messages.</li>
+<li><code>diag</code>: diagnostic reporter for error handling.</li>
+</ul>
+<blockquote>
+<p><strong>Full definition</strong>:</p>
+<pre><code class="language-c">typedef struct csq_lexer {
+   const char* buffer;
+   const char* start;
+   const char* current;
+   size_t line;
+   size_t column;
+   const char* path;
+   DiagReporter* diag;
+} csq_lexer;
+</code></pre>
+</blockquote>
+<h2 id="main-lexing-process"><a class="header" href="print.html#main-lexing-process">Main lexing process</a></h2>
+<p>To lex, C² first creates the lexer using the <a href="https://github.com/csq-lang/csquared/blob/main/src/csquare/lexer.c#L28"><code>lexer_create</code></a> function</p>
+<p>C² uses a state table to lex, meaning that to start lexing a call to <a href="https://github.com/csq-lang/csquared/blob/main/src/csquare/lexer.c#L454"><code>lexer_next</code></a> is made.</p>
+<p><code>lexer_next</code>:</p>
+<ol>
+<li>Checks for whitespaces, which are then skipped.</li>
+<li>Updates <code>lexer-&gt;start</code> to <code>lexer-&gt;current</code>.</li>
+<li>If the end of the buffer was reached, an EOF (End of file) token is returned.</li>
+<li>The lexer gets current lex state. The lex state is of type <code>csq_lexstate</code>, type defined as <code>csq_token (*csq_lexstate)(csq_lexer*))</code> which acts as a function pointer for lexer state handlers.</li>
+<li><code>state(lexer)</code> is returned, as <code>state</code> is a function pointer.
+<ul>
+<li>If there is no state (the state is <code>NULL</code>), then an error token is returned.</li>
+</ul>
+</li>
+</ol>
+<p><code>state(lexer)</code> will then return a token. The way <code>state</code> is retrieved is through the <code>get_lex_state</code> function, which checks the state table and returns the correct lexer state handler depending on the lexer’s current character.</p>
+<p>For example, if the character is a digit (=<code>0</code> to <code>9</code>), then <code>lex_number</code> is returned, the handler for <code>TOKEN_NUMBER</code> tokens.</p>
+<h2 id="lexer-state-handlers"><a class="header" href="print.html#lexer-state-handlers">Lexer state handlers</a></h2>
+<p>There are 6 lexer state handlers: <code>lex_whitespace</code>, <code>lex_identifier</code>, <code>lex_number</code>, <code>lex_string</code>, <code>lex_tag</code> and <code>lex_operator</code>.</p>
+<p><code>lex_whitespace</code> just advances to the next token.</p>
+<p><code>lex_identifier</code> will first advance character while the current one is an alphanumeric character (<code>a-z</code>, <code>A-Z</code> or <code>0-9</code>) or an underscore, then it will declare the <em>type</em> variable, which is obtained through the <code>check_keyword</code> function, which either returns a <code>TOKEN_KEYWORD_*</code> type
+or <code>TOKEN_IDENTIFIER</code>, if the identifier isn’t a keyword. Finally, the function will check correct format of the identifier and, if everything is valid, it will return a new <code>TOKEN_IDENTIFIER</code> token.</p>
+<p><code>lex_number</code> will first check the base of the digit: default is <code>10</code>, but if any prefix that modifies it (<code>0x</code>/<code>0X</code>, <code>0b</code>/<code>0B</code>, <code>0o</code>/<code>0O</code>) is found, then it will change to the correct base (16, 2 and 8, respectively).
+After retrieving the base, it will lex the digit, check correct format and finally return a new <code>TOKEN_NUMBER</code> token.</p>
+<p><code>lex_string</code> will first set the variable <code>quote</code> to either a double or single quote, depending on how the string starts. Then, it will enter a while loop, where while the current character isn’t the quote and there is a character after it, it will add new characters to the string.
+To add characters, it will first check for <a href="https://csq-lang.github.io/lexical/other_members.html#strings">escaped characters</a>, and if it doesn’t find any, it will simply add the current one. It will finally return a new <code>TOKEN_STRING</code> token.</p>
+<p><code>lex_tag</code> is very similar to <code>lex_string</code>, but it will first check for the <code>@</code> prefix.</p>
+<p><code>lex_operator</code> will use a switch statement to check what operator was detected: it will first check for the first character, and if there are two or three character operators/puncuation that start equally, then it will check if it continues. It will finally return a new <code>TOKEN_*</code> token (every operator/puncuation has its own <code>csq_tokentype</code>).</p>
+<h2 id="the-lex-state-table"><a class="header" href="print.html#the-lex-state-table">The lex state table</a></h2>
+<p>This table is used to determine what handler is used for the current token.</p>
+<pre><code class="language-c">void initialize_state_table(void) {
+  state_table[' '] = lex_whitespace;
+  state_table['\t'] = lex_whitespace;
+  state_table['\n'] = lex_whitespace;
+  state_table['\r'] = lex_whitespace;
+  state_table['\v'] = lex_whitespace;
+  state_table['\f'] = lex_whitespace;
+
+  for (char c = 'a'; c &lt;= 'z'; c++)
+    state_table[(unsigned char)c] = lex_identifier;
+
+  for (char c = 'A'; c &lt;= 'Z'; c++)
+    state_table[(unsigned char)c] = lex_identifier;
+
+  state_table['_'] = lex_identifier;
+
+  for (char c = '0'; c &lt;= '9'; c++)
+    state_table[(unsigned char)c] = lex_number;
+
+  state_table['"'] = lex_string;
+  state_table['\''] = lex_string;
+
+  state_table['@'] = lex_tag;
+
+  state_table['+'] = lex_operator;
+  state_table['-'] = lex_operator;
+  state_table['*'] = lex_operator;
+  state_table['/'] = lex_operator;
+  state_table['%'] = lex_operator;
+  state_table['^'] = lex_operator;
+  state_table['='] = lex_operator;
+  state_table['!'] = lex_operator;
+  state_table['&lt;'] = lex_operator;
+  state_table['&gt;'] = lex_operator;
+  state_table['&amp;'] = lex_operator;
+  state_table['|'] = lex_operator;
+  state_table['.'] = lex_operator;
+  state_table['('] = lex_operator;
+  state_table[')'] = lex_operator;
+  state_table['{'] = lex_operator;
+  state_table['}'] = lex_operator;
+  state_table['['] = lex_operator;
+  state_table[']'] = lex_operator;
+  state_table[':'] = lex_operator;
+  state_table[';'] = lex_operator;
+  state_table[','] = lex_operator;
+  state_table['#'] = lex_operator;
+  state_table['?'] = lex_operator;
+
+  state_table['\0'] = NULL;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="tokens"><a class="header" href="print.html#tokens">Tokens</a></h1>
+<h2 id="the-csq_token-type"><a class="header" href="print.html#the-csq_token-type">The <code>csq_token</code> type</a></h2>
+<p>The <code>csq_token</code> type represents a token generated by the lexer.</p>
+<p>It contains:</p>
+<ul>
+<li><code>type</code>: the token’s type.</li>
+<li><code>start</code>: the start of the token in source.</li>
+<li><code>length</code>: the length of the token.</li>
+<li><code>line</code>: line where the token is found (1-indexed).</li>
+<li><code>column</code>: column where the token starts (1-indexed).</li>
+</ul>
+<blockquote>
+<p><strong>Full definition</strong>:</p>
+<pre><code class="language-c">typedef struct {
+ csq_tktype type;
+ const char *start;
+ size_t length;
+ size_t line;
+ size_t column;
+} csq_token;
+</code></pre>
+</blockquote>
+<h2 id="the-csq_tktype-enum"><a class="header" href="print.html#the-csq_tktype-enum">The <code>csq_tktype</code> enum</a></h2>
+<p>This enum contains every kind of token the lexer can generate.</p>
+<p>This is the full definition:</p>
+<pre><code class="language-c">typedef enum {
+  TOKEN_EOF,
+  TOKEN_ERROR,
+  TOKEN_IDENTIFIER,
+  TOKEN_NUMBER,
+  TOKEN_STRING,
+  TOKEN_TAG,
+  TOKEN_BOOLEAN,
+  TOKEN_OPERATOR,
+  TOKEN_PLUS,
+  TOKEN_MINUS,
+  TOKEN_STAR,
+  TOKEN_SLASH,
+  TOKEN_PERCENT,
+  TOKEN_CARET,
+  TOKEN_AMPERSAND,
+  TOKEN_PIPE,
+  TOKEN_BANG,
+  TOKEN_ASSIGN,
+  TOKEN_PLUS_ASSIGN,
+  TOKEN_MINUS_ASSIGN,
+  TOKEN_STAR_ASSIGN,
+  TOKEN_SLASH_ASSIGN,
+  TOKEN_EQUAL,
+  TOKEN_NOT_EQUAL,
+  TOKEN_LESS,
+  TOKEN_GREATER,
+  TOKEN_LESS_EQUAL,
+  TOKEN_GREATER_EQUAL,
+  TOKEN_LOGICAL_AND,
+  TOKEN_LOGICAL_OR,
+  TOKEN_INCREMENT,
+  TOKEN_DECREMENT,
+  TOKEN_DOUBLE_DOT,
+  TOKEN_TRIPLE_DOT,
+  TOKEN_RANGE,
+  TOKEN_ARROW,
+  TOKEN_OPEN_PAREN,
+  TOKEN_CLOSE_PAREN,
+  TOKEN_OPEN_BRACE,
+  TOKEN_CLOSE_BRACE,
+  TOKEN_OPEN_BRACKET,
+  TOKEN_CLOSE_BRACKET,
+  TOKEN_COLON,
+  TOKEN_SEMICOLON,
+  TOKEN_COMMA,
+  TOKEN_DOT,
+  TOKEN_HASH,
+  TOKEN_AT,
+  TOKEN_QUESTION_MARK,
+  TOKEN_KEYWORD_FUNCTION,
+  TOKEN_KEYWORD_FUNC,
+  TOKEN_KEYWORD_IF,
+  TOKEN_KEYWORD_ELSE,
+  TOKEN_KEYWORD_SWITCH,
+  TOKEN_KEYWORD_CASE,
+  TOKEN_KEYWORD_DEFAULT,
+  TOKEN_KEYWORD_WHILE,
+  TOKEN_KEYWORD_FOR,
+  TOKEN_KEYWORD_IN,
+  TOKEN_KEYWORD_RETURN,
+  TOKEN_KEYWORD_THROW,
+  TOKEN_KEYWORD_STRUCT,
+  TOKEN_KEYWORD_ENUM,
+  TOKEN_KEYWORD_IMPORT,
+  TOKEN_KEYWORD_NEW,
+  TOKEN_KEYWORD_REPEAT,
+  TOKEN_KEYWORD_UNTIL,
+  TOKEN_KEYWORD_DEFER,
+  TOKEN_KEYWORD_TRY,
+  TOKEN_KEYWORD_CATCH,
+  TOKEN_KEYWORD_SPAWN,
+  TOKEN_KEYWORD_PRIVATE,
+  TOKEN_KEYWORD_SELF,
+  TOKEN_KEYWORD_OR,
+  TOKEN_KEYWORD_AND,
+  TOKEN_KEYWORD_TRUE,
+  TOKEN_KEYWORD_FALSE,
+  TOKEN_KEYWORD_BOOL,
+  TOKEN_KEYWORD_INT,
+  TOKEN_KEYWORD_STRING,
+  TOKEN_KEYWORD_FLOAT,
+  TOKEN_KEYWORD_BREAK,
+  TOKEN_KEYWORD_CONTINUE,
+  TOKEN_KEYWORD_OPTIONAL,
+  TOKEN_KEYWORD_NIL,
+} csq_tktype;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="parser-1"><a href="print.html#parser-1" class="header">Parser</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="nodes"><a href="print.html#nodes" class="header">Nodes</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-0f1dc511.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

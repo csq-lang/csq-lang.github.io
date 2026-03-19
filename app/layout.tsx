@@ -71,6 +71,12 @@ export default function RootLayout({
               >
                 Docs
               </Link>
+              <Link
+                href="/about"
+                className="rounded-md px-2 py-1 text-slate-700 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/40 dark:hover:text-slate-100"
+              >
+                About
+              </Link>
               <a
                 href="https://github.com/csq-lang/csquared"
                 target="_blank"
