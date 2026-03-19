@@ -12,6 +12,12 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+
+    // Mirrored spec site (static HTML/CSS/JS):
+    "public/spec/**",
+
+    // General static/vendor assets:
+    "public/**/*.min.js",
   ]),
 ]);
 

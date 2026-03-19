@@ -62,11 +62,15 @@ export default async function AboutPage() {
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <a
                 className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
-                href="https://csq-lang.github.io/spec"
-                target="_blank"
-                rel="noreferrer"
+                href="/spec"
               >
                 Spec
+              </a>
+              <a
+                className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
+                href="/docs"
+              >
+                Docs
               </a>
               <a
                 className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"

@@ -66,6 +66,12 @@ export default function RootLayout({
                 Home
               </Link>
               <Link
+                href="/spec"
+                className="rounded-md px-2 py-1 text-slate-700 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/40 dark:hover:text-slate-100"
+              >
+                Spec
+              </Link>
+              <Link
                 href="/docs"
                 className="rounded-md px-2 py-1 text-slate-700 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/40 dark:hover:text-slate-100"
               >
@@ -104,9 +110,7 @@ export default function RootLayout({
               <div className="flex flex-wrap gap-x-4 gap-y-2">
                 <a
                   className="hover:text-slate-900 dark:hover:text-slate-100"
-                  href="https://csq-lang.github.io/spec"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="/spec"
                 >
                   Spec
                 </a>
