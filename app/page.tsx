@@ -1,14 +1,14 @@
 export default function Home() {
   return (
-    <div className="bg-white">
-      <section className="border-b border-slate-200 bg-slate-50">
+    <div className="bg-white dark:bg-slate-950">
+      <section className="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/40">
         <div className="mx-auto w-full max-w-6xl px-6 py-14">
           <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-7">
-              <h1 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+              <h1 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
                 C² Language
               </h1>
-              <p className="mt-4 max-w-2xl text-pretty text-lg leading-8 text-slate-700">
+              <p className="mt-4 max-w-2xl text-pretty text-lg leading-8 text-slate-700 dark:text-slate-300">
                 A simple and efficient programming language designed for modern
                 software development. Compiled, pragmatic, and built to keep you
                 in control.
@@ -23,7 +23,7 @@ export default function Home() {
                 </a>
                 <a
                   href="/docs"
-                  className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900/40"
                 >
                   Read docs
                 </a>
@@ -31,34 +31,34 @@ export default function Home() {
                   href="https://github.com/csq-lang/csquared"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60 hover:text-slate-900"
+                  className="inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-white/60 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-900/40 dark:hover:text-slate-100"
                 >
                   View on GitHub
                 </a>
               </div>
 
               <div className="mt-10 grid gap-6 sm:grid-cols-3">
-                <div className="rounded-lg border border-slate-200 bg-white p-4">
-                  <div className="text-sm font-semibold text-slate-900">
+                <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Static typing
                   </div>
-                  <div className="mt-1 text-sm text-slate-600">
+                  <div className="mt-1 text-sm text-slate-600 dark:text-slate-400">
                     With type inference where it helps.
                   </div>
                 </div>
-                <div className="rounded-lg border border-slate-200 bg-white p-4">
-                  <div className="text-sm font-semibold text-slate-900">
+                <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Fast execution
                   </div>
-                  <div className="mt-1 text-sm text-slate-600">
+                  <div className="mt-1 text-sm text-slate-600 dark:text-slate-400">
                     Low-level performance focus.
                   </div>
                 </div>
-                <div className="rounded-lg border border-slate-200 bg-white p-4">
-                  <div className="text-sm font-semibold text-slate-900">
+                <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-950">
+                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Cross-platform
                   </div>
-                  <div className="mt-1 text-sm text-slate-600">
+                  <div className="mt-1 text-sm text-slate-600 dark:text-slate-400">
                     Designed to run anywhere you build.
                   </div>
                 </div>
@@ -66,11 +66,11 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="rounded-xl border border-slate-200 bg-white p-6">
-                <div className="text-sm font-semibold text-slate-900">
+              <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+                <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                   Basic syntax
                 </div>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                   Clean, familiar, and focused on clarity.
                 </p>
                 <pre className="mt-4 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
@@ -85,20 +85,20 @@ ulong id = 9143145u;`}</code>
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-white dark:bg-slate-950">
         <div className="mx-auto w-full max-w-6xl px-6 py-14">
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
                 Overview
               </h2>
-              <p className="mt-4 text-base leading-7 text-slate-700">
+              <p className="mt-4 text-base leading-7 text-slate-700 dark:text-slate-300">
                 C² aims to combine the performance you expect from systems
                 languages with the readability and ergonomics you want day to
                 day. The philosophy is pragmatic: avoid unnecessary abstraction
                 and make behavior explicit.
               </p>
-              <p className="mt-4 text-base leading-7 text-slate-700">
+              <p className="mt-4 text-base leading-7 text-slate-700 dark:text-slate-300">
                 For detailed language rules and semantics, see the spec.
               </p>
               <div className="mt-6">
@@ -106,7 +106,7 @@ ulong id = 9143145u;`}</code>
                   href="https://csq-lang.github.io/spec"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm font-semibold text-blue-800 hover:text-blue-900"
+                  className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   Read the spec →
                 </a>
@@ -114,7 +114,7 @@ ulong id = 9143145u;`}</code>
             </div>
 
             <div className="lg:col-span-7">
-              <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+              <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
                 Features
               </h2>
               <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -127,7 +127,7 @@ ulong id = 9143145u;`}</code>
                 ].map((item) => (
                   <li
                     key={item}
-                    className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-900/40 dark:text-slate-300"
                   >
                     {item}
                   </li>
@@ -135,8 +135,8 @@ ulong id = 9143145u;`}</code>
               </ul>
 
               <div className="mt-10 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-xl border border-slate-200 bg-white p-6">
-                  <div className="text-sm font-semibold text-slate-900">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Functions
                   </div>
                   <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
@@ -145,8 +145,8 @@ ulong id = 9143145u;`}</code>
 }`}</code>
                   </pre>
                 </div>
-                <div className="rounded-xl border border-slate-200 bg-white p-6">
-                  <div className="text-sm font-semibold text-slate-900">
+                <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+                  <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                     Control flow
                   </div>
                   <pre className="mt-3 overflow-x-auto rounded-lg bg-slate-900 p-4 text-sm text-slate-100">
@@ -165,24 +165,24 @@ ulong id = 9143145u;`}</code>
 
       <section
         id="getting-started"
-        className="border-t border-slate-200 bg-slate-50"
+        className="border-t border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/40"
       >
         <div className="mx-auto w-full max-w-6xl px-6 py-14">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
             Getting started
           </h2>
-          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300">
             C² is open source. The best way to begin is to explore the
-                repository, read the spec, and follow the{" "}
-                {"project's"} build and usage instructions.
+            repository, read the spec, and follow the{" "}
+            {"project's"} build and usage instructions.
           </p>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <div className="text-sm font-semibold text-slate-900">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+              <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                 1) Read
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                 Start with the spec to understand syntax, types, and semantics.
               </p>
               <div className="mt-4">
@@ -190,17 +190,17 @@ ulong id = 9143145u;`}</code>
                   href="https://csq-lang.github.io/spec"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm font-semibold text-blue-800 hover:text-blue-900"
+                  className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   Spec →
                 </a>
               </div>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <div className="text-sm font-semibold text-slate-900">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+              <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                 2) Explore
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                 Browse the repo for examples, the compiler/runtime, and roadmap.
               </p>
               <div className="mt-4">
@@ -208,24 +208,24 @@ ulong id = 9143145u;`}</code>
                   href="https://github.com/csq-lang/csquared"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm font-semibold text-blue-800 hover:text-blue-900"
+                  className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   GitHub →
                 </a>
               </div>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <div className="text-sm font-semibold text-slate-900">
+            <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-800 dark:bg-slate-950">
+              <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">
                 3) Docs
               </div>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Learn what the project is and how {"it's"} shaped by the
-                  community.
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                Learn what the project is and how {"it's"} shaped by the
+                community.
               </p>
               <div className="mt-4">
                 <a
                   href="/docs"
-                  className="text-sm font-semibold text-blue-800 hover:text-blue-900"
+                  className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 >
                   About C² →
                 </a>

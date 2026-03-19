@@ -27,20 +27,20 @@ export default async function DocsPage() {
   const markdown = await loadAboutMarkdown();
 
   return (
-    <div className="bg-white">
-      <section className="border-b border-slate-200 bg-slate-50">
+    <div className="bg-white dark:bg-slate-950">
+      <section className="border-b border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-slate-900/40">
         <div className="mx-auto w-full max-w-6xl px-6 py-12">
           <div className="flex flex-col gap-3">
-            <h1 className="text-3xl font-semibold tracking-tight text-slate-900">
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-50">
               Docs
             </h1>
-            <p className="max-w-2xl text-base leading-7 text-slate-700">
+            <p className="max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300">
               Project documentation and background for the C² language.
             </p>
             <div className="text-sm">
               <Link
                 href="/"
-                className="font-semibold text-blue-800 hover:text-blue-900"
+                className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 ← Back to home
               </Link>
@@ -49,17 +49,17 @@ export default async function DocsPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section className="bg-white dark:bg-slate-950">
         <div className="mx-auto w-full max-w-6xl px-6 py-12">
           <article className="markdown">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
           </article>
 
-          <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6">
-            <div className="text-sm font-semibold text-slate-900">Links</div>
+          <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 dark:border-slate-800 dark:bg-slate-900/40">
+            <div className="text-sm font-semibold text-slate-900 dark:text-slate-50">Links</div>
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <a
-                className="font-semibold text-blue-800 hover:text-blue-900"
+                className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 href="https://csq-lang.github.io/spec"
                 target="_blank"
                 rel="noreferrer"
@@ -67,7 +67,7 @@ export default async function DocsPage() {
                 Spec
               </a>
               <a
-                className="font-semibold text-blue-800 hover:text-blue-900"
+                className="font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 href="https://github.com/csq-lang/csquared"
                 target="_blank"
                 rel="noreferrer"
