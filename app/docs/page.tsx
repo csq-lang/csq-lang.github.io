@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function DocsPage() {
   return (
     <ExternalRedirect
-      to="https://github.com/csq-lang/csq-documentation"
+      to="https://github.com/csq-lang/docu"
       label="C² Documentation"
     />
   );

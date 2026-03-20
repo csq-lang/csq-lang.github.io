@@ -237,7 +237,7 @@ export default function Home() {
               </p>
               <div className="mt-4">
                 <a
-                  href="https://csq-lang.github.io/csq-documentation"
+                  href="https://csq-lang.github.io/docu"
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
