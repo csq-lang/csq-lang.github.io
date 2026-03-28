@@ -22,7 +22,7 @@ export default function Home() {
                   Get started
                 </a>
                 <a
-                  href="/docs"
+                  href="/docu"
                   className="inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:hover:bg-slate-900/40"
                 >
                   Read docs
@@ -242,7 +242,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="text-sm font-semibold text-blue-800 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300"
                 >
-                  Spec →
+                  Docs →
                 </a>
               </div>
             </div>
